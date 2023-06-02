@@ -1,6 +1,7 @@
 //#include"Client.h"
 #include"Food.h"
 #include"Supermarket.h"
+#include "Fabrica.h"
 
 int main() 
 {
@@ -16,6 +17,19 @@ int main()
 	std::cout << "\n";
 
 	supermarket->Buy("Milk");
+	supermarket->ShowDataOfProducts();
+
+	Food* food;
+	Fabrica* fabrica = new Fabrica();
+	food = fabrica->CreateBread();
+	supermarket->AddProduct(food);
+	//supermarket->ShowDataOfProducts();
+	
+	for (int i{}; i < 10; i++)
+	{
+		food = fabrica->CreateRandom();
+		supermarket->AddProduct(food);
+	}
 	supermarket->ShowDataOfProducts();
 
 	return{};
